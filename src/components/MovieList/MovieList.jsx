@@ -1,8 +1,11 @@
 import './MovieList.scss';
 import { MovieCard } from '../MovieCard/MovieCard';
-import movies from '../../api/movies.json';
 
-export const MovieList = () => {
+export const MovieList = ({ movies = [] }) => {
+  if (!movies.length) {
+    return <p>No movies available.</p>;
+  }
+
   return (
     <div className="movies">
       {movies.map(movie => (
